@@ -1,0 +1,320 @@
+/* =========================================================
+   CSS Formulário de Cadastro de Feira
+   ========================================================= */
+
+/* Container do Formulário */
+.form-cadastro {
+    background: #fff;
+    padding: 2.5rem;
+    border-radius: 2rem;
+    border: 0.2rem solid var(--primary);
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+    max-width: 80rem;
+    margin: 0 auto;
+}
+
+/* Inputs, selects e textarea */
+.form-cadastro .control input,
+.form-cadastro .control select,
+.form-cadastro .control textarea,
+.cadastro-form input,
+.cadastro-form select,
+.cadastro-form textarea {
+    width: 100%;
+    padding: 0.8rem 1.5rem;
+    font-size: 1.4rem;
+    border: 0.1rem solid var(--border);
+    border-radius: 0.8rem;
+    background: rgba(255, 255, 255, 0.95);
+    transition: all 0.2s;
+}
+
+.form-cadastro .control input:focus,
+.form-cadastro .control select:focus,
+.form-cadastro .control textarea:focus,
+.cadastro-form input:focus,
+.cadastro-form select:focus,
+.cadastro-form textarea:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+.control-group {
+    display: flex; 
+    padding-bottom: 1rem;
+    gap: 1rem; 
+    align-items: flex-end;
+}
+
+.control-search {
+    width: 80%;
+}
+
+.control--small {
+    width: 20%;
+}
+
+/* Botões */
+.form-cadastro button,
+.cadastro-form button,
+.btn-primary {
+    padding: 0.8rem 2rem;
+    font-size: 1.4rem;
+    border-radius: 0.8rem;
+    border: none;
+    cursor: pointer;
+    background-color: var(--primary);
+    color: #fff;
+    transition: all 0.2s;
+}
+
+.form-cadastro button:hover,
+.cadastro-form button:hover,
+.btn-primary:hover {
+    background-color: rgba(var(--primary-rgba), 0.85);
+}
+
+/* Labels */
+.cadastro-form label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+    font-size: 1.3rem;
+    color: var(--text);
+}
+
+.cadastro-form-field-small label {
+    text-align: center;
+    text-align: left;
+    margin-bottom: 0.4rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+/* Cada campo com label e select */
+.cadastro-form-field-small > div {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+/* Campos pequenos (horário Início/Término) */
+.cadastro-form-field-small {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 1rem;
+    width: 100%;
+}
+
+
+
+/* Grid Endereço */
+.cadastro-endereco-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+}
+
+@media (max-width: 768px) {
+    .cadastro-endereco-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Grid Dias de Funcionamento */
+.cadastro-schedule-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+    gap: 0.8rem 1.2rem;
+}
+
+.cadastro-schedule-grid div {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+/* Grid Categorias de Produtos */
+.cadastro-categorias-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1rem;
+}
+
+.cadastro-categorias-grid div {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+/* Checkbox padrão */
+.cadastro-form input[type="checkbox"] {
+    width: auto;
+    height: auto;
+    margin: 0;
+}
+
+/* Contato */
+.cadastro-form-field-contato {
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .cadastro-form-field-contato {
+        width: calc((100% / 3) - 0.66rem);
+    }
+}
+
+/* Grupos de campos */
+.cadastro-form-field-group {
+    border: 0.2rem solid var(--primary);
+    border-radius: var(--radius);
+    padding: 1.5rem 1rem 1rem;
+    margin-top: 2rem;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.cadastro-form-field-group legend {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    display: block;
+    text-align: center;
+}
+
+/* Linha de horários */
+.horario-row {
+    display: flex;
+    gap: 2rem;
+    justify-content: flex-start;
+    align-items: stretch;
+    flex-wrap: wrap;
+}
+
+/* Input file + Dropzone */
+.cadastro-form-field-image input[type="file"],
+.foto-group input[type="file"] {
+    width: 100%;
+}
+
+.cadastro-form-field-image {
+    height: 100%;
+    border: 2px dashed transparent;
+    outline: 1px dashed var(--border);
+    border-radius: .25rem;
+    display: grid;
+    justify-items: center;
+    gap: .5rem;
+    text-align: center;
+    padding: 1.75rem 1rem;
+    position: relative;
+
+    & input {
+        cursor: pointer;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        inset: 0;
+        opacity: 0;
+    }
+
+    & p {
+        color: #A8A29E;
+    }
+
+    &:hover,
+    &:has(input:focus) {
+        outline-width: 0;
+        border-color: var(--primary);
+        background-color: #FEE7D6;
+
+        & p {
+            color: #8F8881;
+        }
+
+        & svg path {
+            stroke: var(--primary);
+        }
+    }
+}
+
+/* Ajuste selects de horário */
+
+#horaInicio, #horaFim {
+    width: 100%;
+    padding: 0.6rem 1rem;
+    font-size: 1.4rem;
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    background-color: #fff;
+    transition: all 0.2s ease;
+}
+
+/* Hover */
+#horaInicio:hover,
+#horaFim:hover {
+    cursor: pointer;
+    border-color: var(--primary);
+    background-color: rgba(var(--primary-rgba), 0.05);
+}
+
+/* Focus */
+#horaInicio:focus,
+#horaFim:focus {
+    cursor: pointer;
+    outline: none;
+    border-color: var(--primary);
+    background-color: #fff;
+}
+
+/* Horário (33%) */
+.horario-row .horario-group { flex: 0 0 33%; }
+/* Foto (66%) */
+.horario-row .foto-group { flex: 0 0 66%; }
+
+/* Ajustes internos */
+.cadastro-form-field-small select {
+    width: 100%;
+    height: 3rem;
+    padding: 0.4rem 0.8rem;
+    font-size: 1.4rem;
+    border-radius: 0.8rem;
+    border: 0.1rem solid var(--border);
+    background: rgba(255, 255, 255, 0.95);
+    appearance: none;
+    line-height: 1.6rem;
+}
+
+.cadastro-form-field-small select:focus {
+    outline: none;
+    border-color: var(--primary);
+}
+
+/* Botão cadastrar feira */
+.cadastrar-btn {
+    background-color: var(--primary);
+    color: #fff;
+    font-size: 1.6rem;
+    padding: 0.8rem 2rem;
+    border-radius: 8px;
+    border: none;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+    display: inline-block;
+    margin-top: 2rem;
+}
+
+.cadastrar-btn:hover {
+    background-color: rgba(var(--primary-rgba), 0.3);
+}
+
+.cadastrar-btn-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}

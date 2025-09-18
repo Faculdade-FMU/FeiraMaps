@@ -1,0 +1,26 @@
+:root {
+  --primary: #FF5722;
+  --primary-rgba: 255, 87, 34;
+  --secondary: #4CAF50;
+  --accent: #FFE838;
+  --background: #FFF9E6;
+  --text: #5D4837;
+  --card: #FFFFFF;
+  --border: #E8E2D2;
+  --muted: #8D7966;
+  --radius: 1.6rem;
+  --max-width: 120rem;
+  font-size: 62.5%;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body { height: 100%; }
+
+body {
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: var(--background);
+  color: var(--text);
+  font-size: 1.6rem;
+  line-height: 1.5;
+}

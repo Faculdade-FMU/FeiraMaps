@@ -1,0 +1,45 @@
+/* Esconde o checkbox original */
+.checkbox-default {
+    display: none;
+}
+
+/* Estilo base do label */
+.checkbox-default+label {
+    position: relative;
+    padding-left: 3rem;
+    /* espaço pro quadradinho */
+    cursor: pointer;
+    font-size: 1rem;
+    color: var(--text);
+    transition: color 0.2s ease;
+}
+
+/* Quadradinho do checkbox */
+.checkbox-default+label::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.1rem;
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 2px solid var(--primary);
+    border-radius: 0.25rem;
+    background: white;
+    transition: all 0.2s ease;
+}
+
+/* Hover */
+.checkbox-default:hover+label::before {
+    cursor: pointer;
+    border-color: var(--primary);
+    background: rgba(var(--primary-rgba), 0.5) url("../assets/icons/check.svg") no-repeat center / 1.8rem;
+}
+
+/* Checked */
+.checkbox-default:checked+label::before {
+    cursor: pointer;
+    border-color: var(--primary);
+    background: var(--primary);
+    background: var(--primary) url("../assets/icons/check.svg") no-repeat center / 1.8rem;
+    
+}

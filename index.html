@@ -4,616 +4,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="css/style.css">
   <title>Feira Maps - Encontre feiras próximas a você</title>
-  <!-- <link rel="stylesheet" href="css/style.css"> -->
-
-  <!-- ESTILOS PRINCIPAIS -->
-  <style>
-    /* VARIÁVEIS CSS - Nova paleta de cores baseada na imagem */
-    :root {
-      /* Laranja energético */
-      --primary: #FF5722;
-      --primary-rgba: 255, 87, 34;
-      /* Verde fresco */
-      --secondary: #4CAF50;
-      /* Amarelo vibrante */
-      --accent: #FFE838;
-      /* Amarelo-claro caloroso */
-      --background: #FFF9E6;
-      /* Marrom terroso */
-      --text: #5D4837;
-      /* Fundo dos cards  */
-      --card: #FFFFFF;
-      /* Borda suave */
-      --border: #E8E2D2;
-      /* Texto secundário */
-      --muted: #8D7966;
-      --radius: 1.6rem;
-      --max-width: 120rem;
-      /* 1rem = 10px (para facilitar cálculos) */
-      font-size: 62.5%;
-    }
-
-    /* RESET BÁSICO */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html,
-    body {
-      height: 100%;
-    }
-
-    body {
-      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      background: var(--background);
-      color: var(--text);
-      /* 16px (baseado no font-size: 62.5% do :root) */
-      font-size: 1.6rem;
-      line-height: 1.5;
-    }
-
-    /* LAYOUT PRINCIPAL */
-    .container {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 2rem;
-    }
-
-    /* HEADER/TOPBAR */
-    .topbar {
-      background: var(--accent);
-      border-bottom: 0.1rem solid var(--border);
-      height: 6rem;
-      overflow: hidden;
-    }
-
-    .topbar__inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 100%;
-    }
-
-    /* MARCA/LOGO */
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-    }
-
-    .brand__logo {
-      width: 20rem;
-      height: 20rem;
-      margin-left: 8rem;
-      background-image: url(../assets/img/logo.png);
-      background-size: 140%;
-      background-position: right;
-      background-repeat: no-repeat;
-      border-radius: 0.8rem;
-    }
-
-    .brand__name {
-      margin-right: 12rem;
-      font-weight: 700;
-      font-size: 1.8rem;
-      color: var(--text);
-    }
-
-    /* CAMPO DE PESQUISA */
-    .search {
-      flex: 1;
-      max-width: 80rem;
-      margin: 0 2rem;
-    }
-
-    .search__input {
-      width: 100%;
-      padding: 0.8rem 1.5rem;
-      border-radius: 0.8rem;
-      border: 0.1rem solid var(--border);
-      font-size: 1.4rem;
-      background: rgba(255, 255, 255, 0.8);
-    }
-
-    /*Inputs*/
-
-    /* Borda colorida ao focar nos inputs */
-    .control input:focus,
-    .search__input:focus {
-      outline: none;
-      border-color: var(--primary);
-    }
-
-    /* MENU DE NAVEGAÇÃO */
-    .nav {
-      display: flex;
-      gap: 1.2rem;
-      align-items: center;
-    }
-
-    .nav__link {
-      color: var(--text);
-      text-decoration: none;
-      padding: 0.6rem 1rem;
-      border-radius: 1rem;
-      font-size: 1.4rem;
-      transition: background-color 0.2s;
-    }
-
-    .nav__link:hover {
-      background-color: rgba(var(--primary-rgba), 0.1);
-      color: var(--primary);
-    }
-
-    /* Remove botão Entrar (como solicitado) */
-    .nav__cta {
-      display: none;
-    }
-
-    /* BOTÃO PARA ABRIR MENU DE DIAS */
-    .btn-dias {
-      background: var(--accent);
-      color: white;
-      border: none;
-      padding: 0.8rem 1.2rem;
-      border-radius: 0.6rem;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-
-    /* Ícone do botão */
-    #toggleBtn svg {
-      width: 3rem;
-      height: 3rem;
-      transition: color 0.3s;
-      color: white;
-    }
-
-    #toggleBtn:hover svg {
-      color: var(--primary);
-    }
-
-    /* MENU LATERAL DE DIAS */
-    .sidebar-dias {
-      position: fixed;
-      top: 0;
-      left: -250px;
-      width: 250px;
-      height: 100%;
-      background: var(--card);
-      box-shadow: 2px 0 8px rgba(0, 0, 0, 0.3);
-      padding: 4rem 1rem 2rem 1rem;
-      transition: left 0.3s ease;
-      z-index: 1050;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    .sidebar-dias.open {
-      left: 0;
-    }
-
-    /* botão de fechar */
-    .sidebar-dias .close-btn {
-      position: absolute;
-      top: .1rem;
-      right: 1rem;
-      background: transparent;
-      border: none;
-      font-size: 3.2rem;
-      color: var(--primary);
-      cursor: pointer;
-    }
-
-    .sidebar-dias h3 {
-      background: var(--primary);
-      color: white;
-      font-weight: bold;
-      font-size: 1.6rem;
-      padding: 1rem 1.2rem;
-      /* formato oval */
-      border-radius: 50% / 30%;
-      text-align: center;
-      margin-bottom: 2rem;
-      box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
-    }
-
-    .dias__grid {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-      width: 100%;
-    }
-
-    .dias__grid label {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: transparent;
-      color: var(--text);
-      font-weight: bold;
-      font-size: 1.4rem;
-      padding: 0.5rem 0.2rem;
-      border-bottom: 1px dotted var(--primary);
-      position: relative;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-
-    .dias__grid label:hover {
-      transform: translateY(-3px);
-      color: var(--primary);
-    }
-
-    .dias__grid label:hover::after {
-      background-color: rgba(var(--primary-rgba), 0.3);
-      background-image: url("./assets/icons/check.svg");
-      background-repeat: no-repeat;
-      background-size: 2.5rem 2.5rem;
-      background-position: center;
-      border-color: var(--primary);
-    }
-
-    .dias__grid label::after {
-      content: "";
-      display: inline-block;
-      width: 3rem;
-      height: 3rem;
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 0.4rem;
-      margin-left: 0.8rem;
-      transition: background 0.3s ease;
-    }
-
-    .dias__grid input:checked+label::after {
-      background-color: var(--primary);
-      background-image: url("./assets/icons/check.svg");
-      background-repeat: no-repeat;
-      background-size: 2.5rem 2.5rem;
-      background-position: center;
-      border-color: var(--primary);
-    }
-
-    .dias__grid input {
-      display: none;
-    }
-
-    /* LAYOUT PRINCIPAL COM GRID */
-    .main-grid {
-      display: grid;
-      grid-template-columns: 48% 52%;
-      gap: 1.5rem;
-      align-items: start;
-      margin-top: 2rem;
-    }
-
-    /* PANELS (CONTÊINERES) */
-    .panel {
-      height: 57rem;
-      background: var(--card);
-      border-radius: var(--radius);
-      padding: 1.5rem;
-      border: 0.1rem solid var(--border);
-      box-shadow: 0 0.8rem 1.5rem rgba(0, 0, 0, 0.05);
-    }
-
-    /* PAINEL ESQUERDO (LISTA DE FEIRAS) */
-    .left-panel {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .panel__top {
-      margin-bottom: 1.5rem;
-    }
-
-    /* PILLS (ABAS) */
-    .pills {
-      display: flex;
-      gap: 0.8rem;
-      margin-bottom: 1rem;
-    }
-
-    .pill {
-      background: white;
-      border-radius: 1.6rem;
-      border: 0.1rem solid var(--border);
-      padding: 0.5rem 1.2rem;
-      cursor: pointer;
-      font-size: 1.4rem;
-      transition: all 0.2s;
-    }
-
-    .pill:hover {
-      background-color: #f0f0f0;
-    }
-
-    .pill--active {
-      background: var(--primary);
-      color: white;
-    }
-
-    .pill--active:hover {
-      background: var(--primary);
-    }
-
-    /* CONTROLES DE FILTRO */
-    .controls {
-      display: flex;
-      gap: 1rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .control {
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .control--small {
-      max-width: 10rem;
-    }
-
-    .control label {
-      font-weight: 600;
-      margin-bottom: 0.4rem;
-      font-size: 1.3rem;
-      color: var(--text);
-    }
-
-    .control input {
-      padding: 0.8rem;
-      border-radius: 0.8rem;
-      border: 0.1rem solid var(--border);
-      font-size: 1.4rem;
-      background: rgba(255, 255, 255, 0.8);
-    }
-
-    /* LISTA DE FEIRAS */
-    .panel__list {
-      flex: 1;
-    }
-
-    .list-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 1rem;
-    }
-
-    .badge {
-      background: var(--primary);
-      color: white;
-      padding: 0.3rem 0.8rem;
-      border-radius: 1.6rem;
-      font-weight: 700;
-      font-size: 1.2rem;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.2rem;
-      max-height: 35rem;
-      overflow-y: auto;
-    }
-
-    /* Estilização da barra de rolagem */
-    .cards::-webkit-scrollbar {
-      width: 0.5rem;
-    }
-
-    .cards::-webkit-scrollbar-track {
-      background: transparent;
-    }
-
-    .cards::-webkit-scrollbar-thumb {
-      background-color: var(--primary);
-      border-radius: 1rem;
-    }
-
-    .cards {
-      scrollbar-width: thin;
-      scrollbar-color: var(--primary) transparent;
-    }
-
-    /* CARDS INDIVIDUAIS DE FEIRAS */
-    .card {
-      display: flex;
-      height: 12rem;
-      gap: 1.2rem;
-      border-radius: 1.2rem;
-      overflow: hidden;
-      border: 0.1rem solid var(--border);
-      background: white;
-      font-size: 1.3rem;
-      position: relative;
-      transition: transform 0.3s ease;
-      cursor: pointer;
-    }
-
-    .card:hover {
-      transform: translateY(0rem);
-      box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.1);
-      border-color: var(--primary);
-    }
-
-    .card__img {
-      width: 12rem;
-      height: 12rem;
-      overflow: hidden;
-      border-radius: 1.2rem;
-      flex-shrink: 0;
-    }
-
-    .card__img img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.3s ease;
-    }
-
-    .card:hover .card__img img {
-      transform: scale(1.15);
-    }
-
-    .card__body {
-      padding: 0.8rem;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-
-    .card__title {
-      font-size: 1.6rem;
-      margin: 0 0 0.4rem;
-      color: var(--text);
-    }
-
-    .card__meta {
-      font-size: 1.3rem;
-      color: var(--muted);
-    }
-
-    .card__overlay {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 100%;
-      background-color: rgba(var(--primary-rgba), 0.9);
-      color: white;
-      padding: 0.8rem;
-      opacity: 0;
-      transform: translateY(100%);
-      transition: all 0.3s ease;
-      font-size: 1.4rem;
-      border-radius: 0 0 1.2rem 1.2rem;
-    }
-
-    .card:hover .card__overlay {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* BOTÃO DO OVERLAY */
-
-    .card__overlay .btn {
-      background: white;
-      border-radius: 1.6rem;
-      margin-top: 1.2rem;
-      border: 0.1rem solid var(--border);
-      padding: 0.5rem 2rem;
-      cursor: pointer;
-      font-size: 1.4rem;
-      transition: all 0.2s;
-    }
-
-    .card__overlay .btn:hover {
-      background-color: #f0f0f0;
-    }
-
-    .card__overlay .btn--active {
-      background: var(--primary);
-      color: white;
-    }
-
-    .card__overlay .btn--active:hover {
-      background: var(--primary);
-    }
-
-    /* PAINEL DO MAPA */
-    .map-panel {
-      display: flex;
-      flex-direction: column;
-      gap: 0.8rem;
-      height: 57rem;
-    }
-
-    .map-header {
-      margin-bottom: 1rem;
-    }
-
-    .map-frame {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 0.8rem;
-      overflow: hidden;
-      background-color: white;
-      border: 1px solid var(--border);
-    }
-
-    .map-frame img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      display: block;
-    }
-
-    /* RODAPÉ */
-    .footer {
-      margin-top: 3rem;
-      padding: 1.5rem 0;
-      text-align: center;
-      color: var(--muted);
-      font-size: 1.3rem;
-      border-top: 1px solid var(--border);
-    }
-
-    /* RESPONSIVIDADE */
-    @media (max-width: 1024px) {
-      .main-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .topbar__inner {
-        flex-wrap: wrap;
-        height: auto;
-        padding: 1rem 0;
-      }
-
-      .search {
-        order: 3;
-        width: 100%;
-        max-width: 100%;
-        margin: 1rem 0 0;
-      }
-
-      .cards {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 768px) {
-      :root {
-        font-size: 55%;
-        /* Ajusta base para telas menores */
-      }
-
-      .container {
-        padding: 1rem;
-      }
-
-      .card {
-        flex-direction: column;
-        height: auto;
-      }
-
-      .card__img {
-        width: 100%;
-        height: 15rem;
-      }
-    }
-  </style>
 </head>
 
 <body>
@@ -621,7 +13,7 @@
   <header class="topbar" role="banner">
     <div class="topbar__inner container">
       <!-- Botão para abrir menu lateral de dias -->
-      <button id="toggleBtn" class="btn-dias" aria-label="Abrir menu de dias" onclick="toggleDias()">
+      <button id="toggleBtn" class="btn-dias" aria-label="Abrir menu de dias">
         <svg width="2" height="2" version="1.1" viewBox="0 0 1200 1200" xmlns="http://www.w3.org/2000/svg">
           <path fill="currentColor"
             d="m1060.8 375.6c46.801 0 80.398-33.602 80.398-79.199 0-45.602-33.602-81.602-80.398-81.602h-920.4c-45.602 0-81.602 36-81.602 81.602 0 45.602 36 79.199 81.602 79.199zm-920.4 448.8c-45.602 0-81.602 36-81.602 80.398s36 81.602 81.602 81.602h921.6c46.801 0 80.398-37.199 80.398-81.602 0-44.398-33.602-80.398-80.398-80.398zm0-306c-45.602 0-81.602 36-81.602 81.602s36 81.602 81.602 81.602h921.6c46.801 0 80.398-36 80.398-81.602s-33.602-81.602-80.398-81.602z" />
@@ -658,21 +50,22 @@
       </aside>
 
       <!-- Marca/Logo -->
+
       <div class="brand">
         <div class="brand__logo" aria-hidden="true"></div>
-        <!-- <span class="brand__name">Feira Maps</span> -->
       </div>
 
       <!-- Campo de pesquisa -->
       <div class="search">
-        <input class="search__input" type="text" placeholder="Pesquisar local, bairro..." aria-label="Pesquisar feiras">
+        <input class="search__input" type="text" placeholder="Pesquisar..." aria-label="Pesquisar feiras">
       </div>
+
 
       <!-- Navegação -->
       <nav class="nav" aria-label="Navegação principal">
+
         <a class="nav__link" href="#busca">Pesquisar</a>
-        <a class="nav__link" href="#cadastro">Cadastre-se</a>
-        <a class="nav__cta" href="#login">Entrar</a>
+        <a class="nav__link" href="cadastrar-feira.html">Cadastre-se</a>
       </nav>
     </div>
   </header>
@@ -690,13 +83,18 @@
 
         <!-- Filtros de localização -->
         <div class="controls">
-          <div class="control">
-            <label for="local">Local</label>
-            <input id="local" type="text" placeholder="Ex: Centro, Vila Mariana">
+          <div class="control-group">
+            <div class="control control-search">
+              <label for="local">Local</label>
+              <input class="search__input" id="local" type="text" placeholder="Ex: Centro, Vila Mariana">
+            </div>
+            <div class="control control--small">
+              <label for="raio">Raio (km)</label>
+              <input class="search__input" id="raio" type="number" min="1" max="50" value="5">
+            </div>
           </div>
           <div class="control control--small">
-            <label for="raio">Raio (km)</label>
-            <input id="raio" type="number" min="1" max="50" value="5">
+            <button class="btn-primary" role="tab">Buscar</button>
           </div>
         </div>
       </div>
@@ -723,7 +121,7 @@
                 <p>Horário: Seg a Sex • 08:00 - 13:00</p>
                 <p>Produtos: Hortifruti, Orgânicos</p>
                 <p>Contato: (11) 98765-4321</p>
-                <button class="btn btn--small">Ver no mapa</button>
+                <button class="btn-search">Ver no mapa</button>
               </div>
             </div>
           </article>
@@ -742,7 +140,7 @@
                 <p>Horário: Ter e Qui • 07:00 - 12:00</p>
                 <p>Produtos: Hortifruti, Artesanato</p>
                 <p>Contato: (11) 91234-5678</p>
-                <button class="btn btn--small">Ver no mapa</button>
+                <button class="btn-search">Ver no mapa</button>
               </div>
             </div>
           </article>
@@ -760,7 +158,7 @@
                 <p>Horário: Sábado • 06:00 - 13:00</p>
                 <p>Produtos: Orgânicos, Produtos naturais</p>
                 <p>Contato: (11) 99876-5432</p>
-                <button class="btn btn--small">Ver no mapa</button>
+                <button class="btn-search">Ver no mapa</button>
               </div>
             </div>
           </article>
@@ -778,7 +176,7 @@
                 <p>Horário: Ter e Qui • 07:00 - 12:00</p>
                 <p>Produtos: Hortifruti, Artesanato</p>
                 <p>Contato: (11) 91234-5678</p>
-                <button class="btn btn--small">Ver no mapa</button>
+                <button class="btn-search">Ver no mapa</button>
               </div>
             </div>
           </article>
@@ -796,7 +194,7 @@
                 <p>Horário: Ter e Qui • 07:00 - 12:00</p>
                 <p>Produtos: Hortifruti, Artesanato</p>
                 <p>Contato: (11) 91234-5678</p>
-                <button class="btn btn--small">Ver no mapa</button>
+                <button class="btn-search">Ver no mapa</button>
               </div>
             </div>
           </article>
@@ -823,34 +221,37 @@
     </div>
   </footer>
 
-  <!-- SCRIPTS -->
   <script>
-    // Função para alternar a visibilidade do menu lateral de dias
-    function toggleDias() {
-      const sidebar = document.getElementById("sidebarDias");
-      sidebar.classList.toggle("open");
+    document.addEventListener("DOMContentLoaded", () => {
+      function toggleDias() {
+        const sidebar = document.querySelector(".sidebar-dias");
+        sidebar.classList.toggle("open");
 
-      // Acessibilidade: atualiza atributo aria-expanded
+        const toggleBtn = document.getElementById("toggleBtn");
+        const isExpanded = sidebar.classList.contains("open");
+        toggleBtn.setAttribute("aria-expanded", isExpanded);
+      }
+
+      // Botão abrir
       const toggleBtn = document.getElementById("toggleBtn");
-      const isExpanded = sidebar.classList.contains("open");
-      toggleBtn.setAttribute("aria-expanded", isExpanded);
-    }
+      if (toggleBtn) toggleBtn.addEventListener("click", toggleDias);
 
-    // Atualiza o ano no rodapé automaticamente
-    document.getElementById("ano").textContent = new Date().getFullYear();
+      // Botão fechar
+      const closeBtn = document.querySelector(".close-btn");
+      if (closeBtn) closeBtn.addEventListener("click", toggleDias);
 
-    // Adiciona interação às abas (Feiras/Eventos)
-    document.querySelectorAll('.pill').forEach(pill => {
-      pill.addEventListener('click', function () {
-        // Remove a classe ativa de todas as pills
-        document.querySelectorAll('.pill').forEach(p => p.classList.remove('pill--active'));
+      // Atualiza ano no rodapé
+      const ano = document.getElementById("ano");
+      if (ano) ano.textContent = new Date().getFullYear();
 
-        // Adiciona a classe ativa à pill clicada
-        this.classList.add('pill--active');
-
-        // Atualiza atributos de acessibilidade
-        document.querySelectorAll('.pill').forEach(p => p.setAttribute('aria-selected', 'false'));
-        this.setAttribute('aria-selected', 'true');
+      // Pills
+      document.querySelectorAll('.pill').forEach(pill => {
+        pill.addEventListener('click', function () {
+          document.querySelectorAll('.pill').forEach(p => p.classList.remove('pill--active'));
+          this.classList.add('pill--active');
+          document.querySelectorAll('.pill').forEach(p => p.setAttribute('aria-selected', 'false'));
+          this.setAttribute('aria-selected', 'true');
+        });
       });
     });
   </script>

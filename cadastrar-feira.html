@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="https://unpkg.com/imask"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <title>Feira Maps - Cadastro de Feira</title>
+</head>
+
+<body>
+    <!-- CABEÇALHO -->
+    <header class="topbar" role="banner">
+        <div class="topbar__inner container">
+            <div class="brand">
+                <div class="brand__logo" aria-hidden="true"></div>
+            </div>
+
+            <!-- CAMPO DE PESQUISA -->
+            <div class="search">
+                <input type="text" class="search__input" placeholder="Pesquisar...">
+            </div>
+
+            <nav class="nav" aria-label="Navegação principal">
+                <a class="nav__link" href="#cadastro">Cadastrar Feira</a>
+                <a class="nav__link" href="index.html">Início</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- CONTEÚDO PRINCIPAL -->
+    <main class="container">
+        <section class="panel__form" id="cadastro">
+            <h2 style="margin-bottom: 2rem;">Cadastrar Nova Feira</h2>
+
+            <form id="cadastroForm" action="#" method="POST" class="cadastro-form">
+                <div class="cadastro-form-wrapper">
+
+                    <!-- ENDEREÇO DA FEIRA -->
+                    <div class="cadastro-form-field-group">
+                        <legend>Endereço da Feira</legend>
+                        <div class="cadastro-endereco-grid">
+                            <div class="cadastro-form-field">
+                                <label for="rua">Rua</label>
+                                <input type="text" id="rua" name="rua" placeholder="Nome da rua" required>
+                            </div>
+
+                            <div class="cadastro-form-field">
+                                <label for="numero">Número</label>
+                                <input type="number" id="numero" name="numero" placeholder="Número" required>
+                            </div>
+
+                            <div class="cadastro-form-field">
+                                <label for="complemento">Complemento (opcional)</label>
+                                <input type="text" id="complemento" name="complemento" placeholder="Ex: Apto 101">
+                            </div>
+
+                            <div class="cadastro-form-field">
+                                <label for="bairro">Bairro</label>
+                                <input type="text" id="bairro" name="bairro" placeholder="Ex: Centro" required>
+                            </div>
+
+                            <div class="cadastro-form-field">
+                                <label for="cidade">Cidade</label>
+                                <input type="text" id="cidade" name="cidade" placeholder="Ex: São Paulo" required>
+                            </div>
+
+                            <div class="cadastro-form-field">
+                                <label for="estado">Estado</label>
+                                <input type="text" id="estado" name="estado" placeholder="Ex: SP" required>
+                            </div>
+
+                            <div class="cadastro-form-field">
+                                <label for="cep">CEP</label>
+                                <input type="text" id="cep" name="cep" placeholder="Ex: 01234-567" required>
+                            </div>
+
+                            <div class="cadastro-form-field">
+                                <label for="contato">Contato</label>
+                                <input type="text" id="contato" name="contato" placeholder="Ex: (11) 98765-4321"
+                                    required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- DIAS DE FUNCIONAMENTO -->
+                    <div class="cadastro-form-field-group">
+                        <legend>Dias de funcionamento</legend>
+                        <div class="cadastro-schedule-grid">
+                            <div><input class="checkbox-default" type="checkbox" id="seg" name="dias[]" value="segunda"><label
+                                    for="seg">Segunda-feira</label></div>
+                            <div><input class="checkbox-default" type="checkbox" id="ter" name="dias[]" value="terca"><label
+                                    for="ter">Terça-feira</label></div>
+                            <div><input class="checkbox-default" type="checkbox" id="qua" name="dias[]" value="quarta"><label
+                                    for="qua">Quarta-feira</label></div>
+                            <div><input class="checkbox-default" type="checkbox" id="qui" name="dias[]" value="quinta"><label
+                                    for="qui">Quinta-feira</label></div>
+                            <div><input class="checkbox-default" type="checkbox" id="sex" name="dias[]" value="sexta"><label
+                                    for="sex">Sexta-feira</label></div>
+                            <div><input class="checkbox-default" type="checkbox" id="sab" name="dias[]" value="sabado"><label
+                                    for="sab">Sábado</label></div>
+                            <div><input class="checkbox-default" type="checkbox" id="dom" name="dias[]" value="domingo"><label
+                                    for="dom">Domingo</label></div>
+                        </div>
+                    </div>
+
+                    <!-- CATEGORIAS -->
+                    <div class="cadastro-form-field-group">
+                        <legend>Categorias de Produtos</legend>
+                        <div class="cadastro-categorias-grid">
+                            <div><input class="checkbox-default" type="checkbox" id="hortifruti" name="categorias[]" value="hortifruti"><label
+                                    for="hortifruti">Hortifrúti</label></div>
+                            <div><input class="checkbox-default" type="checkbox" id="carnes_peixes" name="categorias[]"
+                                    value="carnes_peixes"><label for="carnes_peixes">Carnes e peixes</label></div>
+                            <div><input class="checkbox-default" type="checkbox" id="laticinios" name="categorias[]" value="laticinios"><label
+                                    for="laticinios">Laticínios</label></div>
+                            <div><input class="checkbox-default" type="checkbox" id="graos_cereais" name="categorias[]"
+                                    value="graos_cereais"><label for="graos_cereais">Grãos e cereais</label></div>
+                            <div><input class="checkbox-default" type="checkbox" id="temperos_condimentos" name="categorias[]"
+                                    value="temperos_condimentos"><label for="temperos_condimentos">Temperos e
+                                    condimentos</label></div>
+                            <div><input class="checkbox-default" type="checkbox" id="produtos_artesanais" name="categorias[]"
+                                    value="produtos_artesanais"><label for="produtos_artesanais">Produtos
+                                    artesanais</label></div>
+                            <div><input class="checkbox-default" type="checkbox" id="comidas_prontas" name="categorias[]"
+                                    value="comidas_prontas"><label for="comidas_prontas">Comidas Prontas</label></div>
+                            <div><input class="checkbox-default" type="checkbox" id="sucos_naturais" name="categorias[]"
+                                    value="sucos_naturais"><label for="sucos_naturais">Sucos naturais</label></div>
+                            <div><input class="checkbox-default" type="checkbox" id="cafe_cha" name="categorias[]" value="cafe_cha"><label
+                                    for="cafe_cha">Café e chá</label></div>
+                            <div><input class="checkbox-default" type="checkbox" id="bebidas_artesanais" name="categorias[]"
+                                    value="bebidas_artesanais"><label for="bebidas_artesanais">Bebidas
+                                    artesanais</label></div>
+                        </div>
+                    </div>
+
+                    <!-- HORÁRIO E FOTO -->
+                    <div class="cadastro-form-field-row horario-row">
+                        <!-- Horário -->
+                        <div class="cadastro-form-field-group" style="flex: 0 0 32%;">
+                            <legend>Horário</legend>
+                            <div class="cadastro-form-field-small">
+                                <label for="horaInicio">Início:</label>
+                                <select id="horaInicio" name="horaInicio" value="" required>
+                                    <option value="" selected disabled></option>
+                                    <option value="06:00">06:00</option>
+                                    <option value="06:30">06:30</option>
+                                    <option value="07:00">07:00</option>
+                                    <option value="07:30">07:30</option>
+                                    <option value="08:00">08:00</option>
+                                    <option value="08:30">08:30</option>
+                                    <option value="09:00">09:00</option>
+                                    <option value="09:30">09:30</option>
+                                    <option value="10:00">10:00</option>
+                                    <option value="10:30">10:30</option>
+                                    <option value="11:00">11:00</option>
+                                    <option value="11:30">11:30</option>
+                                    <option value="12:00">12:00</option>
+                                    <option value="12:30">12:30</option>
+                                    <option value="13:00">13:00</option>
+                                    <option value="13:30">13:30</option>
+                                    <option value="14:00">14:00</option>
+                                    <option value="14:30">14:30</option>
+                                    <option value="15:00">15:00</option>
+                                    <option value="15:30">15:30</option>
+                                    <option value="16:00">16:00</option>
+                                    <option value="16:30">16:30</option>
+                                    <option value="17:00">17:00</option>
+                                    <option value="17:30">17:30</option>
+                                    <option value="18:00">18:00</option>
+                                    <option value="18:30">18:30</option>
+                                    <option value="19:00">19:00</option>
+                                    <option value="19:30">19:30</option>
+                                </select>
+
+                                <label for="horaFim">Término:</label>
+                                <select id="horaFim" name="horaFim" value="" required>
+                                    <option value="" selected disabled></option>
+                                    <option value="06:30">06:30</option>
+                                    <option value="07:00">07:00</option>
+                                    <option value="07:30">07:30</option>
+                                    <option value="08:00">08:00</option>
+                                    <option value="08:30">08:30</option>
+                                    <option value="09:00">09:00</option>
+                                    <option value="09:30">09:30</option>
+                                    <option value="10:00">10:00</option>
+                                    <option value="10:30">10:30</option>
+                                    <option value="11:00">11:00</option>
+                                    <option value="11:30">11:30</option>
+                                    <option value="12:00">12:00</option>
+                                    <option value="12:30">12:30</option>
+                                    <option value="13:00">13:00</option>
+                                    <option value="13:30">13:30</option>
+                                    <option value="14:00">14:00</option>
+                                    <option value="14:30">14:30</option>
+                                    <option value="15:00">15:00</option>
+                                    <option value="15:30">15:30</option>
+                                    <option value="16:00">16:00</option>
+                                    <option value="16:30">16:30</option>
+                                    <option value="17:00">17:00</option>
+                                    <option value="17:30">17:30</option>
+                                    <option value="18:00">18:00</option>
+                                    <option value="18:30">18:30</option>
+                                    <option value="19:00">19:00</option>
+                                    <option value="19:30">19:30</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Foto da Feira -->
+                        <div class="cadastro-form-field-group" style="flex: 0 0 66%;">
+                            <legend>Foto da Feira</legend>
+                            <div class="cadastro-form-field-image">
+                                <input type="file" id="foto" name="foto" accept="image/*">
+                                <svg width="85" height="85" viewBox="0 0 48 48" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M34.9552 18.0221C34.97 18.022 34.985 18.022 35 18.022C39.9706 18.022 44 22.0588 44 27.0386C44 31.6796 40.5 35.5016 36 36M34.9552 18.0221C34.9848 17.6921 35 17.3579 35 17.0202C35 10.9339 30.0752 6 24 6C18.2465 6 13.5247 10.4253 13.0408 16.0638M34.9552 18.0221C34.7506 20.2952 33.8572 22.3692 32.4856 24.033M13.0408 16.0638C7.96796 16.5475 4 20.8278 4 26.0366C4 30.8834 7.43552 34.9264 12 35.8546M13.0408 16.0638C13.3565 16.0337 13.6765 16.0183 14 16.0183C16.2516 16.0183 18.3295 16.7639 20.001 18.022"
+                                        stroke="#D6D3D1" stroke-width="3" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path
+                                        d="M24 26V42M24 26C22.5996 26 19.9831 29.9886 19 31M24 26C25.4004 26 28.017 29.9886 29 31"
+                                        stroke="#D6D3D1" stroke-width="3" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- BOTÃO DE ENVIO -->
+                    <div class="cadastrar-btn-wrapper">
+                        <button type="submit" class="cadastrar-btn">Cadastrar Feira</button>
+                    </div>
+
+                </div> <!-- Fim cadastro-form-wrapper -->
+            </form>
+        </section>
+    </main>
+
+    <!-- RODAPÉ -->
+    <footer class="footer" role="contentinfo">
+        <div class="container footer__inner">
+            <p>© <span id="ano">2025</span> Feira Maps - Todos os direitos reservados</p>
+        </div>
+    </footer>
+
+    <script>
+        // Atualiza o ano no rodapé automaticamente
+        document.getElementById("ano").textContent = new Date().getFullYear();
+
+        // Máscara CEP
+        var cep = document.getElementById('cep');
+        var cepMask = IMask(cep, { mask: '00000-000' });
+
+        // Máscara Telefone
+        var contato = document.getElementById('contato');
+        var contatoMask = IMask(contato, { mask: '(00) 00000-0000' });
+    </script>
+
+</body>
+
+
+</html>

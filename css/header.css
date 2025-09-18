@@ -1,0 +1,74 @@
+.topbar {
+  background: var(--accent);
+  border-bottom: 0.1rem solid var(--border);
+  height: 6rem;
+  overflow: hidden;
+}
+
+.topbar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.brand__logo {
+  width: 20rem;
+  height: 20rem;
+  margin-left: 8rem;
+  background: url(../assets/img/logo.png) no-repeat right / 140%;
+  border-radius: 0.8rem;
+}
+
+.brand__name {
+  margin-right: 12rem;
+  font-weight: 700;
+  font-size: 1.8rem;
+  color: var(--text);
+}
+
+.search {
+  flex: 1;
+  max-width: 80rem;
+  margin: 0 2rem;
+}
+
+.search__input {
+  width: 100%;
+  padding: 0.8rem 1.5rem;
+  border-radius: 0.8rem;
+  border: 0.1rem solid var(--border);
+  font-size: 1.4rem;
+  background: rgba(255,255,255,0.8);
+}
+
+.search__input:focus,
+.control input:focus { outline: none; border-color: var(--primary); }
+
+.nav {
+  display: flex;
+  gap: 1.2rem;
+  align-items: center;
+}
+
+.nav__link {
+  color: var(--text);
+  text-decoration: none;
+  padding: 0.6rem 1rem;
+  border-radius: 1rem;
+  font-size: 1.4rem;
+  transition: background-color 0.2s;
+}
+
+.nav__link:hover {
+  cursor: pointer;
+  color: var(--primary);
+}
+
+.nav__cta { display: none; }

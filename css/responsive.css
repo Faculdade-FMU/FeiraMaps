@@ -1,0 +1,57 @@
+/* Responsividade */
+
+@media (max-width: 1024px) {
+    .main-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .topbar__inner {
+        flex-wrap: wrap;
+        height: auto;
+        padding: 1rem 0;
+    }
+
+    .search {
+        order: 3;
+        width: 100%;
+        max-width: 100%;
+        margin: 1rem 0 0;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        font-size: 55%;
+    }
+
+    .container {
+        padding: 1rem;
+    }
+
+    .card {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .card__img {
+        width: 100%;
+        height: 15rem;
+    }
+
+    .cadastro-endereco-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .horario-row {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .cadastro-form-field-small select {
+        height: 3.5rem;
+    }
+}

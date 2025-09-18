@@ -1,0 +1,103 @@
+.btn-dias {
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.2rem;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#toggleBtn svg {
+  width: 3rem;
+  height: 3rem;
+  color: var(--primary);
+  transition: color 0.3s;
+}
+#toggleBtn:hover svg { color: rgba(var(--primary-rgba), 0.50); }
+
+.sidebar-dias {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 250px;
+  height: 100%;
+  background: var(--card);
+  box-shadow: 2px 0 8px rgba(0,0,0,0.3);
+  padding: 4rem 1rem 2rem;
+  transition: left 0.3s ease;
+  z-index: 1050;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sidebar-dias.open { left: 0; }
+
+.sidebar-dias .close-btn {
+  position: absolute;
+  top: .1rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  font-size: 3.2rem;
+  color: var(--primary);
+  cursor: pointer;
+}
+
+.sidebar-dias .close-btn:hover {
+  color: rgba(var(--primary-rgba), 0.5) ;
+}
+
+.sidebar-dias h3 {
+  background: var(--primary);
+  color: white;
+  font-weight: bold;
+  font-size: 1.6rem;
+  padding: 1rem 1.2rem;
+  border-radius: 50% / 30%;
+  text-align: center;
+  margin-bottom: 2rem;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+}
+
+.dias__grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.dias__grid label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  font-size: 1.4rem;
+  padding: 0.5rem 0.2rem;
+  border-bottom: 1px dotted var(--primary);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.dias__grid label::after {
+  content: "";
+  display: inline-block;
+  width: 3rem;
+  height: 3rem;
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 0.4rem;
+  margin-left: 0.8rem;
+  transition: background 0.3s ease;
+}
+
+.dias__grid input { display: none;}
+
+.dias__grid label:hover::after {
+  background: rgba(var(--primary-rgba), 0.3) url("../assets/icons/check.svg") no-repeat center / 2.5rem;
+}
+
+.dias__grid input:checked + label::after {
+  background: var(--primary) url("../assets/icons/check.svg") no-repeat center / 2.5rem;
+}

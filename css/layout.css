@@ -1,0 +1,26 @@
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.main-grid {
+  display: grid;
+  grid-template-columns: 48% 52%;
+  gap: 1.5rem;
+  align-items: start;
+  margin-top: 2rem;
+}
+
+.panel,
+.panel__form {
+  background: var(--card);
+  border-radius: var(--radius);
+  border: 0.1rem solid var(--border);
+  box-shadow: 0 0.8rem 1.5rem rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+}
+
+.panel {
+  height: 57rem;
+}

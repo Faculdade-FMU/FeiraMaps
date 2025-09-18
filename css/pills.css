@@ -1,0 +1,22 @@
+.pills {
+  display: flex;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.pill {
+  background: white;
+  border-radius: 1.6rem;
+  border: 0.1rem solid var(--border);
+  padding: 0.5rem 1.2rem;
+  cursor: pointer;
+  font-size: 1.4rem;
+  transition: all 0.2s;
+}
+
+.pill:hover { background-color: #f0f0f0; }
+
+.pill--active {
+  background: var(--primary);
+  color: white;
+}
