@@ -19,7 +19,8 @@
 .form-cadastro .control textarea,
 .cadastro-form input,
 .cadastro-form select,
-.cadastro-form textarea {
+.cadastro-form textarea,
+.search__input {
     width: 100%;
     padding: 0.8rem 1.5rem;
     font-size: 1.4rem;
@@ -34,15 +35,17 @@
 .form-cadastro .control textarea:focus,
 .cadastro-form input:focus,
 .cadastro-form select:focus,
-.cadastro-form textarea:focus {
+.cadastro-form textarea:focus,
+.search__input:focus {
     outline: none;
     border-color: var(--primary);
+    box-shadow: 0 0 0 2px rgba(var(--primary-rgba), 0.3);
 }
 
 .control-group {
-    display: flex; 
+    display: flex;
     padding-bottom: 1rem;
-    gap: 1rem; 
+    gap: 1rem;
     align-items: flex-end;
 }
 
@@ -51,27 +54,14 @@
 }
 
 .control--small {
+    margin-top: 2rem;
     width: 20%;
 }
 
-/* Botões */
-.form-cadastro button,
-.cadastro-form button,
-.btn-primary {
-    padding: 0.8rem 2rem;
-    font-size: 1.4rem;
-    border-radius: 0.8rem;
-    border: none;
-    cursor: pointer;
-    background-color: var(--primary);
-    color: #fff;
-    transition: all 0.2s;
-}
-
-.form-cadastro button:hover,
-.cadastro-form button:hover,
-.btn-primary:hover {
-    background-color: rgba(var(--primary-rgba), 0.85);
+/* Cabeçalho da lista */
+.list-header {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
 /* Labels */
@@ -92,7 +82,7 @@
 }
 
 /* Cada campo com label e select */
-.cadastro-form-field-small > div {
+.cadastro-form-field-small>div {
     display: flex;
     flex-direction: column;
     flex: 1;
@@ -107,19 +97,11 @@
     width: 100%;
 }
 
-
-
 /* Grid Endereço */
 .cadastro-endereco-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 1rem;
-}
-
-@media (max-width: 768px) {
-    .cadastro-endereco-grid {
-        grid-template-columns: 1fr;
-    }
 }
 
 /* Grid Dias de Funcionamento */
@@ -158,12 +140,6 @@
 /* Contato */
 .cadastro-form-field-contato {
     width: 100%;
-}
-
-@media (min-width: 768px) {
-    .cadastro-form-field-contato {
-        width: calc((100% / 3) - 0.66rem);
-    }
 }
 
 /* Grupos de campos */
@@ -230,7 +206,7 @@
     &:has(input:focus) {
         outline-width: 0;
         border-color: var(--primary);
-        background-color: #FEE7D6;
+        background-color: rgba(var(--primary-rgba), .1);
 
         & p {
             color: #8F8881;
@@ -244,7 +220,8 @@
 
 /* Ajuste selects de horário */
 
-#horaInicio, #horaFim {
+#horaInicio,
+#horaFim {
     width: 100%;
     padding: 0.6rem 1rem;
     font-size: 1.4rem;
@@ -272,9 +249,14 @@
 }
 
 /* Horário (33%) */
-.horario-row .horario-group { flex: 0 0 33%; }
+.horario-row .horario-group {
+    flex: 0 0 33%;
+}
+
 /* Foto (66%) */
-.horario-row .foto-group { flex: 0 0 66%; }
+.horario-row .foto-group {
+    flex: 0 0 66%;
+}
 
 /* Ajustes internos */
 .cadastro-form-field-small select {

@@ -54,4 +54,8 @@
     .cadastro-form-field-small select {
         height: 3.5rem;
     }
+
+    .cadastro-form-field-contato {
+        width: calc((100% / 3) - 0.66rem);
+    }
 }

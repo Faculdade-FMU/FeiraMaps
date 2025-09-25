@@ -32,7 +32,7 @@
 .checkbox-default:hover+label::before {
     cursor: pointer;
     border-color: var(--primary);
-    background: rgba(var(--primary-rgba), 0.5) url("../assets/icons/check.svg") no-repeat center / 1.8rem;
+    background: rgba(var(--primary-rgba), 0.5) url("../assets/icons/check.svg") no-repeat center / 1.5rem;
 }
 
 /* Checked */
@@ -40,6 +40,6 @@
     cursor: pointer;
     border-color: var(--primary);
     background: var(--primary);
-    background: var(--primary) url("../assets/icons/check.svg") no-repeat center / 1.8rem;
+    background: var(--primary) url("../assets/icons/check.svg") no-repeat center / 1.5rem;
     
 }

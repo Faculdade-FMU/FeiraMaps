@@ -5,28 +5,45 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <script src="https://unpkg.com/imask"></script>
+    <script src="js/main.js" defer></script>
     <link rel="stylesheet" href="css/style.css">
     <title>Feira Maps - Cadastro de Feira</title>
 </head>
 
 <body>
     <!-- CABEÇALHO -->
-    <header class="topbar" role="banner">
-        <div class="topbar__inner container">
-            <div class="brand">
-                <div class="brand__logo" aria-hidden="true"></div>
-            </div>
+    <header class="navbar">
 
-            <!-- CAMPO DE PESQUISA -->
-            <div class="search">
-                <input type="text" class="search__input" placeholder="Pesquisar...">
-            </div>
+        <!-- BLOCO ESQUERDA (LOGO) -->
+        <div class="nav-left"><a href="sobre-nos.html">FeiraMaps</a></div>
 
-            <nav class="nav" aria-label="Navegação principal">
-                <a class="nav__link" href="#cadastro">Cadastrar Feira</a>
-                <a class="nav__link" href="index.html">Início</a>
-            </nav>
+        <!-- BARRA DE PESQUISA -->
+        <div class="nav-search">
+            <div class="search-box">
+                <i class="fa fa-search"></i>
+                <input type="text" id="search-input" placeholder="Buscar eventos, categorias ou locais...">
+                <button class="search-btn" id="search-btn">Procurar</button>
+            </div>
         </div>
+
+        <!-- LINKS CENTRAIS -->
+        <div class="nav-center">
+            <a href="index.html">Inicio</a>
+            <a href="login.html">Cadastros</a>
+        </div>
+
+        <!-- BOTÃO DIREITA (MENU + USUÁRIO) -->
+        <div class="nav-right">
+            <a href="login.html">
+                <div class="pill-btn">
+                    <img src="assets/icons/menu-default.svg" alt="Usuário" style="width:16px; height:16px;">
+                    <div class="user-icon">
+                        <img src="assets/icons/user.svg" alt="Usuário" style="width:16px; height:16px;">
+                    </div>
+                </div>
+            </a>
+        </div>
+
     </header>
 
     <!-- CONTEÚDO PRINCIPAL -->
@@ -88,20 +105,20 @@
                     <div class="cadastro-form-field-group">
                         <legend>Dias de funcionamento</legend>
                         <div class="cadastro-schedule-grid">
-                            <div><input class="checkbox-default" type="checkbox" id="seg" name="dias[]" value="segunda"><label
-                                    for="seg">Segunda-feira</label></div>
-                            <div><input class="checkbox-default" type="checkbox" id="ter" name="dias[]" value="terca"><label
-                                    for="ter">Terça-feira</label></div>
-                            <div><input class="checkbox-default" type="checkbox" id="qua" name="dias[]" value="quarta"><label
-                                    for="qua">Quarta-feira</label></div>
-                            <div><input class="checkbox-default" type="checkbox" id="qui" name="dias[]" value="quinta"><label
-                                    for="qui">Quinta-feira</label></div>
-                            <div><input class="checkbox-default" type="checkbox" id="sex" name="dias[]" value="sexta"><label
-                                    for="sex">Sexta-feira</label></div>
-                            <div><input class="checkbox-default" type="checkbox" id="sab" name="dias[]" value="sabado"><label
-                                    for="sab">Sábado</label></div>
-                            <div><input class="checkbox-default" type="checkbox" id="dom" name="dias[]" value="domingo"><label
-                                    for="dom">Domingo</label></div>
+                            <div><input class="checkbox-default" type="checkbox" id="seg" name="dias[]"
+                                    value="segunda"><label for="seg">Segunda-feira</label></div>
+                            <div><input class="checkbox-default" type="checkbox" id="ter" name="dias[]"
+                                    value="terca"><label for="ter">Terça-feira</label></div>
+                            <div><input class="checkbox-default" type="checkbox" id="qua" name="dias[]"
+                                    value="quarta"><label for="qua">Quarta-feira</label></div>
+                            <div><input class="checkbox-default" type="checkbox" id="qui" name="dias[]"
+                                    value="quinta"><label for="qui">Quinta-feira</label></div>
+                            <div><input class="checkbox-default" type="checkbox" id="sex" name="dias[]"
+                                    value="sexta"><label for="sex">Sexta-feira</label></div>
+                            <div><input class="checkbox-default" type="checkbox" id="sab" name="dias[]"
+                                    value="sabado"><label for="sab">Sábado</label></div>
+                            <div><input class="checkbox-default" type="checkbox" id="dom" name="dias[]"
+                                    value="domingo"><label for="dom">Domingo</label></div>
                         </div>
                     </div>
 
@@ -109,28 +126,32 @@
                     <div class="cadastro-form-field-group">
                         <legend>Categorias de Produtos</legend>
                         <div class="cadastro-categorias-grid">
-                            <div><input class="checkbox-default" type="checkbox" id="hortifruti" name="categorias[]" value="hortifruti"><label
-                                    for="hortifruti">Hortifrúti</label></div>
+                            <div><input class="checkbox-default" type="checkbox" id="hortifruti" name="categorias[]"
+                                    value="hortifruti"><label for="hortifruti">Hortifrúti</label></div>
                             <div><input class="checkbox-default" type="checkbox" id="carnes_peixes" name="categorias[]"
                                     value="carnes_peixes"><label for="carnes_peixes">Carnes e peixes</label></div>
-                            <div><input class="checkbox-default" type="checkbox" id="laticinios" name="categorias[]" value="laticinios"><label
-                                    for="laticinios">Laticínios</label></div>
+                            <div><input class="checkbox-default" type="checkbox" id="laticinios" name="categorias[]"
+                                    value="laticinios"><label for="laticinios">Laticínios</label></div>
                             <div><input class="checkbox-default" type="checkbox" id="graos_cereais" name="categorias[]"
                                     value="graos_cereais"><label for="graos_cereais">Grãos e cereais</label></div>
-                            <div><input class="checkbox-default" type="checkbox" id="temperos_condimentos" name="categorias[]"
-                                    value="temperos_condimentos"><label for="temperos_condimentos">Temperos e
+                            <div><input class="checkbox-default" type="checkbox" id="temperos_condimentos"
+                                    name="categorias[]" value="temperos_condimentos"><label
+                                    for="temperos_condimentos">Temperos e
                                     condimentos</label></div>
-                            <div><input class="checkbox-default" type="checkbox" id="produtos_artesanais" name="categorias[]"
-                                    value="produtos_artesanais"><label for="produtos_artesanais">Produtos
+                            <div><input class="checkbox-default" type="checkbox" id="produtos_artesanais"
+                                    name="categorias[]" value="produtos_artesanais"><label
+                                    for="produtos_artesanais">Produtos
                                     artesanais</label></div>
-                            <div><input class="checkbox-default" type="checkbox" id="comidas_prontas" name="categorias[]"
-                                    value="comidas_prontas"><label for="comidas_prontas">Comidas Prontas</label></div>
+                            <div><input class="checkbox-default" type="checkbox" id="comidas_prontas"
+                                    name="categorias[]" value="comidas_prontas"><label for="comidas_prontas">Comidas
+                                    Prontas</label></div>
                             <div><input class="checkbox-default" type="checkbox" id="sucos_naturais" name="categorias[]"
                                     value="sucos_naturais"><label for="sucos_naturais">Sucos naturais</label></div>
-                            <div><input class="checkbox-default" type="checkbox" id="cafe_cha" name="categorias[]" value="cafe_cha"><label
-                                    for="cafe_cha">Café e chá</label></div>
-                            <div><input class="checkbox-default" type="checkbox" id="bebidas_artesanais" name="categorias[]"
-                                    value="bebidas_artesanais"><label for="bebidas_artesanais">Bebidas
+                            <div><input class="checkbox-default" type="checkbox" id="cafe_cha" name="categorias[]"
+                                    value="cafe_cha"><label for="cafe_cha">Café e chá</label></div>
+                            <div><input class="checkbox-default" type="checkbox" id="bebidas_artesanais"
+                                    name="categorias[]" value="bebidas_artesanais"><label
+                                    for="bebidas_artesanais">Bebidas
                                     artesanais</label></div>
                         </div>
                     </div>
@@ -245,20 +266,16 @@
         </div>
     </footer>
 
-    <script>
-        // Atualiza o ano no rodapé automaticamente
-        document.getElementById("ano").textContent = new Date().getFullYear();
-
-        // Máscara CEP
-        var cep = document.getElementById('cep');
-        var cepMask = IMask(cep, { mask: '00000-000' });
-
-        // Máscara Telefone
-        var contato = document.getElementById('contato');
-        var contatoMask = IMask(contato, { mask: '(00) 00000-0000' });
-    </script>
-
 </body>
 
+<script>
+    // Máscara CEP
+    var cep = document.getElementById('cep');
+    var cepMask = IMask(cep, { mask: '00000-000' });
+
+    // Máscara Telefone
+    var contato = document.getElementById('contato');
+    var contatoMask = IMask(contato, { mask: '(00) 00000-0000' });
+</script>
 
 </html>

@@ -5,69 +5,44 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="css/style.css">
+  <script src="js/main.js" defer></script>
   <title>Feira Maps - Encontre feiras próximas a você</title>
 </head>
 
 <body>
   <!-- CABEÇALHO -->
-  <header class="topbar" role="banner">
-    <div class="topbar__inner container">
-      <!-- Botão para abrir menu lateral de dias -->
-      <button id="toggleBtn" class="btn-dias" aria-label="Abrir menu de dias">
-        <svg width="2" height="2" version="1.1" viewBox="0 0 1200 1200" xmlns="http://www.w3.org/2000/svg">
-          <path fill="currentColor"
-            d="m1060.8 375.6c46.801 0 80.398-33.602 80.398-79.199 0-45.602-33.602-81.602-80.398-81.602h-920.4c-45.602 0-81.602 36-81.602 81.602 0 45.602 36 79.199 81.602 79.199zm-920.4 448.8c-45.602 0-81.602 36-81.602 80.398s36 81.602 81.602 81.602h921.6c46.801 0 80.398-37.199 80.398-81.602 0-44.398-33.602-80.398-80.398-80.398zm0-306c-45.602 0-81.602 36-81.602 81.602s36 81.602 81.602 81.602h921.6c46.801 0 80.398-36 80.398-81.602s-33.602-81.602-80.398-81.602z" />
-        </svg>
-      </button>
+  <header class="navbar">
 
-      <!-- Menu lateral de dias de funcionamento -->
-      <aside class="sidebar-dias" id="sidebarDias" aria-label="Menu de dias de funcionamento">
-        <button class="close-btn" aria-label="Fechar menu" onclick="toggleDias()">×</button>
-        <h3>Dias de funcionamento</h3>
-        <div class="dias__grid">
-          <!-- Opções de dias -->
-          <input type="checkbox" id="seg" name="dias[]" value="segunda">
-          <label for="seg">Segunda-feira</label>
+    <!-- BLOCO ESQUERDA (LOGO) -->
+    <div class="nav-left"><a href="sobre-nos.html">FeiraMaps</a></div>
 
-          <input type="checkbox" id="ter" name="dias[]" value="terca">
-          <label for="ter">Terça-feira</label>
-
-          <input type="checkbox" id="qua" name="dias[]" value="quarta">
-          <label for="qua">Quarta-feira</label>
-
-          <input type="checkbox" id="qui" name="dias[]" value="quinta">
-          <label for="qui">Quinta-feira</label>
-
-          <input type="checkbox" id="sex" name="dias[]" value="sexta">
-          <label for="sex">Sexta-feira</label>
-
-          <input type="checkbox" id="sab" name="dias[]" value="sabado">
-          <label for="sab">Sábado</label>
-
-          <input type="checkbox" id="dom" name="dias[]" value="domingo">
-          <label for="dom">Domingo</label>
-        </div>
-      </aside>
-
-      <!-- Marca/Logo -->
-
-      <div class="brand">
-        <div class="brand__logo" aria-hidden="true"></div>
+    <!-- BARRA DE PESQUISA -->
+    <div class="nav-search">
+      <div class="search-box">
+        <i class="fa fa-search"></i>
+        <input type="text" id="search-input" placeholder="Buscar eventos, categorias ou locais...">
+        <button class="search-btn" id="search-btn">Procurar</button>
       </div>
-
-      <!-- Campo de pesquisa -->
-      <div class="search">
-        <input class="search__input" type="text" placeholder="Pesquisar..." aria-label="Pesquisar feiras">
-      </div>
-
-
-      <!-- Navegação -->
-      <nav class="nav" aria-label="Navegação principal">
-
-        <a class="nav__link" href="#busca">Pesquisar</a>
-        <a class="nav__link" href="cadastrar-feira.html">Cadastre-se</a>
-      </nav>
     </div>
+
+    <!-- LINKS CENTRAIS -->
+    <div class="nav-center">
+      <a href="index.html">Inicio</a>
+      <a href="login.html">Cadastros</a>
+    </div>
+
+    <!-- BOTÃO DIREITA (MENU + USUÁRIO) -->
+    <div class="nav-right">
+      <a href="login.html">
+        <div class="pill-btn">
+          <img src="assets/icons/menu-default.svg" alt="Usuário" style="width:16px; height:16px;">
+          <div class="user-icon">
+            <img src="assets/icons/user.svg" alt="Usuário" style="width:16px; height:16px;">
+          </div>
+        </div>
+      </a>
+    </div>
+
   </header>
 
   <!-- CONTEÚDO PRINCIPAL -->
@@ -93,6 +68,25 @@
               <input class="search__input" id="raio" type="number" min="1" max="50" value="5">
             </div>
           </div>
+
+          <!-- Filtros de dias da semana -->
+          <div class="cadastro-schedule-grid">
+            <div><input class="checkbox-default" type="checkbox" id="seg" name="dias[]" value="segunda"><label
+                for="seg">Segunda-feira</label></div>
+            <div><input class="checkbox-default" type="checkbox" id="ter" name="dias[]" value="terca"><label
+                for="ter">Terça-feira</label></div>
+            <div><input class="checkbox-default" type="checkbox" id="qua" name="dias[]" value="quarta"><label
+                for="qua">Quarta-feira</label></div>
+            <div><input class="checkbox-default" type="checkbox" id="qui" name="dias[]" value="quinta"><label
+                for="qui">Quinta-feira</label></div>
+            <div><input class="checkbox-default" type="checkbox" id="sex" name="dias[]" value="sexta"><label
+                for="sex">Sexta-feira</label></div>
+            <div><input class="checkbox-default" type="checkbox" id="sab" name="dias[]" value="sabado"><label
+                for="sab">Sábado</label></div>
+            <div><input class="checkbox-default" type="checkbox" id="dom" name="dias[]" value="domingo"><label
+                for="dom">Domingo</label></div>
+          </div>
+
           <div class="control control--small">
             <button class="btn-primary" role="tab">Buscar</button>
           </div>
@@ -103,13 +97,13 @@
       <div class="panel__list">
         <div class="list-header">
           <h2 id="feiras-heading">Feiras encontradas</h2>
-          <span class="badge">557</span>
+          <span class="badge">5</span>
         </div>
         <div class="cards">
           <!-- Card de exemplo (deve ser gerado dinamicamente) -->
           <article class="card" role="article">
             <div class="card__img">
-              <img src="assets/img/feira_capa.jpg" alt="Feira da Praça Central">
+              <img src="assets/img/feiras-cadastradas/feira_1.jpeg" alt="Feira da Praça Central">
             </div>
             <div class="card__body">
               <h3 class="card__title">Feira da Praça Central</h3>
@@ -129,7 +123,7 @@
           <!-- Cards adicionais (normalmente gerados dinamicamente) -->
           <article class="card" role="article">
             <div class="card__img">
-              <img src="assets/img/feira_capa.jpg" alt="Feira do Bairro Jardim">
+              <img src="assets/img/feiras-cadastradas/feira_2.jpg" alt="Feira do Bairro Jardim">
             </div>
             <div class="card__body">
               <h3 class="card__title">Feira do Bairro Jardim</h3>
@@ -147,7 +141,7 @@
 
           <article class="card" role="article">
             <div class="card__img">
-              <img src="assets/img/feira_capa.jpg" alt="Feira Orgânica Saúde">
+              <img src="assets/img/feiras-cadastradas/feira_3.jpg" alt="Feira Orgânica Saúde">
             </div>
             <div class="card__body">
               <h3 class="card__title">Feira Orgânica Saúde</h3>
@@ -165,7 +159,7 @@
 
           <article class="card" role="article">
             <div class="card__img">
-              <img src="assets/img/feira_capa.jpg" alt="Feira do Bairro Jardim">
+              <img src="assets/img/feiras-cadastradas/feira_4.jpg" alt="Feira do Bairro Jardim">
             </div>
             <div class="card__body">
               <h3 class="card__title">Feira do Bairro Jardim</h3>
@@ -183,7 +177,7 @@
 
           <article class="card" role="article">
             <div class="card__img">
-              <img src="assets/img/feira_capa.jpg" alt="Feira do Bairro Jardim">
+              <img src="assets/img/feiras-cadastradas/feira_5.jpg" alt="Feira do Bairro Jardim">
             </div>
             <div class="card__body">
               <h3 class="card__title">Feira do Bairro Jardim</h3>
@@ -209,7 +203,7 @@
         <h2>Mapa</h2>
       </div>
       <div class="map-frame">
-        <img src="assets/img/mapa-do-brasil-legendado-pintado-regioes.jpg" alt="Mapa do Brasil com regiões destacadas">
+        <img src="assets/img/mapa.png" alt="Mapa do centro de São Paulo">
       </div>
     </aside>
   </main>
@@ -221,40 +215,6 @@
     </div>
   </footer>
 
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      function toggleDias() {
-        const sidebar = document.querySelector(".sidebar-dias");
-        sidebar.classList.toggle("open");
-
-        const toggleBtn = document.getElementById("toggleBtn");
-        const isExpanded = sidebar.classList.contains("open");
-        toggleBtn.setAttribute("aria-expanded", isExpanded);
-      }
-
-      // Botão abrir
-      const toggleBtn = document.getElementById("toggleBtn");
-      if (toggleBtn) toggleBtn.addEventListener("click", toggleDias);
-
-      // Botão fechar
-      const closeBtn = document.querySelector(".close-btn");
-      if (closeBtn) closeBtn.addEventListener("click", toggleDias);
-
-      // Atualiza ano no rodapé
-      const ano = document.getElementById("ano");
-      if (ano) ano.textContent = new Date().getFullYear();
-
-      // Pills
-      document.querySelectorAll('.pill').forEach(pill => {
-        pill.addEventListener('click', function () {
-          document.querySelectorAll('.pill').forEach(p => p.classList.remove('pill--active'));
-          this.classList.add('pill--active');
-          document.querySelectorAll('.pill').forEach(p => p.setAttribute('aria-selected', 'false'));
-          this.setAttribute('aria-selected', 'true');
-        });
-      });
-    });
-  </script>
 </body>
 
 </html>

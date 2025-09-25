@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: 1.2rem;
-  max-height: 34rem;
+  max-height: 30rem;
   overflow-y: auto;
   scrollbar-width: thin;
   scrollbar-color: var(--primary) transparent;

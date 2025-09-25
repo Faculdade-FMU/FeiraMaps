@@ -14,9 +14,50 @@
   transition: all 0.2s;
 }
 
-.pill:hover { background-color: #f0f0f0; }
+.pill:hover {
+  background-color: #f0f0f0;
+}
 
 .pill--active {
   background: var(--primary);
   color: white;
+}
+
+/* BOTÃO PÍLULA NAV BAR*/
+
+.pill-btn {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 25px;
+  padding: 5px 8px 5px 12px;
+  background: #fff;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.pill-btn:hover {
+  background: #f9f9f9;
+}
+
+.pill-btn i {
+  font-size: 18px;
+  color: #444;
+}
+
+.pill-btn .user-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 8px;
+  background: #f5f5f5;
+}
+
+.pill-btn .user-icon i {
+  font-size: 16px;
+  color: #444;
 }
