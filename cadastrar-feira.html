@@ -160,78 +160,20 @@
                     <!-- HORÁRIO E FOTO -->
                     <div class="cadastro-form-field-row horario-row">
                         <!-- Horário -->
-                        <div class="cadastro-form-field-group" style="flex: 0 0 32%;">
+                        <div class="cadastro-form-field-group" style="flex: 0 0 35%;">
                             <legend>Horário</legend>
                             <div class="cadastro-form-field-small">
                                 <label for="horaInicio">Início:</label>
-                                <select id="horaInicio" name="horaInicio" value="" required>
-                                    <option value="" selected disabled></option>
-                                    <option value="06:00">06:00</option>
-                                    <option value="06:30">06:30</option>
-                                    <option value="07:00">07:00</option>
-                                    <option value="07:30">07:30</option>
-                                    <option value="08:00">08:00</option>
-                                    <option value="08:30">08:30</option>
-                                    <option value="09:00">09:00</option>
-                                    <option value="09:30">09:30</option>
-                                    <option value="10:00">10:00</option>
-                                    <option value="10:30">10:30</option>
-                                    <option value="11:00">11:00</option>
-                                    <option value="11:30">11:30</option>
-                                    <option value="12:00">12:00</option>
-                                    <option value="12:30">12:30</option>
-                                    <option value="13:00">13:00</option>
-                                    <option value="13:30">13:30</option>
-                                    <option value="14:00">14:00</option>
-                                    <option value="14:30">14:30</option>
-                                    <option value="15:00">15:00</option>
-                                    <option value="15:30">15:30</option>
-                                    <option value="16:00">16:00</option>
-                                    <option value="16:30">16:30</option>
-                                    <option value="17:00">17:00</option>
-                                    <option value="17:30">17:30</option>
-                                    <option value="18:00">18:00</option>
-                                    <option value="18:30">18:30</option>
-                                    <option value="19:00">19:00</option>
-                                    <option value="19:30">19:30</option>
+                                <input id="horaFim" name="horaFim" type="time" step="1800" value="00:00" required>
                                 </select>
 
                                 <label for="horaFim">Término:</label>
-                                <select id="horaFim" name="horaFim" value="" required>
-                                    <option value="" selected disabled></option>
-                                    <option value="06:30">06:30</option>
-                                    <option value="07:00">07:00</option>
-                                    <option value="07:30">07:30</option>
-                                    <option value="08:00">08:00</option>
-                                    <option value="08:30">08:30</option>
-                                    <option value="09:00">09:00</option>
-                                    <option value="09:30">09:30</option>
-                                    <option value="10:00">10:00</option>
-                                    <option value="10:30">10:30</option>
-                                    <option value="11:00">11:00</option>
-                                    <option value="11:30">11:30</option>
-                                    <option value="12:00">12:00</option>
-                                    <option value="12:30">12:30</option>
-                                    <option value="13:00">13:00</option>
-                                    <option value="13:30">13:30</option>
-                                    <option value="14:00">14:00</option>
-                                    <option value="14:30">14:30</option>
-                                    <option value="15:00">15:00</option>
-                                    <option value="15:30">15:30</option>
-                                    <option value="16:00">16:00</option>
-                                    <option value="16:30">16:30</option>
-                                    <option value="17:00">17:00</option>
-                                    <option value="17:30">17:30</option>
-                                    <option value="18:00">18:00</option>
-                                    <option value="18:30">18:30</option>
-                                    <option value="19:00">19:00</option>
-                                    <option value="19:30">19:30</option>
-                                </select>
+                                <input id="horaFim" name="horaFim" type="time" step="1800" value="00:00" required>
                             </div>
                         </div>
 
                         <!-- Foto da Feira -->
-                        <div class="cadastro-form-field-group" style="flex: 0 0 66%;">
+                        <div class="cadastro-form-field-group" style="flex: 0 0 63%;">
                             <legend>Foto da Feira</legend>
                             <div class="cadastro-form-field-image">
                                 <input type="file" id="foto" name="foto" accept="image/*">

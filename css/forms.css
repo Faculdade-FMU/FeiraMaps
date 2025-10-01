@@ -234,7 +234,7 @@
 /* Hover */
 #horaInicio:hover,
 #horaFim:hover {
-    cursor: pointer;
+    cursor: text;
     border-color: var(--primary);
     background-color: rgba(var(--primary-rgba), 0.05);
 }
@@ -242,20 +242,26 @@
 /* Focus */
 #horaInicio:focus,
 #horaFim:focus {
-    cursor: pointer;
+    cursor: text;
     outline: none;
     border-color: var(--primary);
     background-color: #fff;
 }
 
+/* Ícone do reloginho */
+#horaInicio::-webkit-calendar-picker-indicator,
+#horaFim::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+}
+
 /* Horário (33%) */
 .horario-row .horario-group {
-    flex: 0 0 33%;
+    flex: 0 0 35%;
 }
 
 /* Foto (66%) */
 .horario-row .foto-group {
-    flex: 0 0 66%;
+    flex: 0 0 65%;
 }
 
 /* Ajustes internos */
