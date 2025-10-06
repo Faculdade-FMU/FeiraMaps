@@ -31,3 +31,31 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
+const buttons = document.querySelectorAll('.btn-search');
+const iframe = document.getElementById('mapFrame');
+
+buttons.forEach(button => {
+  button.addEventListener('click', function () {
+    // Pega o card correspondente
+    const card = this.closest('.card');
+    const addressElement = card.querySelector('.endereco');
+
+    const cep = addressElement.dataset.cep || '';
+    const enderecoTexto = addressElement.textContent.trim();
+
+    // Combina endereço + CEP
+    let searchQuery = enderecoTexto;
+    if (cep) searchQuery += ` - ${cep}`;
+
+    if (searchQuery === '') {
+      alert('Erro ao localizar endereço');
+      return;
+    }
+
+    console.log("Consulta no Maps:", searchQuery);
+
+    // Atualiza o mapa
+    const query = encodeURIComponent(searchQuery);
+    iframe.src = `https://www.google.com/maps?q=${query}&output=embed`;
+  });
+});
