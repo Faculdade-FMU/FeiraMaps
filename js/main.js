@@ -59,3 +59,9 @@ buttons.forEach(button => {
     iframe.src = `https://www.google.com/maps?q=${query}&output=embed`;
   });
 });
+
+document.querySelectorAll(".btn-detalhes").forEach(botao => {
+  botao.addEventListener("click", function() {
+    window.location.href = "detalhes.html";
+  });
+});
