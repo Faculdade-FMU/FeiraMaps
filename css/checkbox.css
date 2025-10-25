@@ -43,3 +43,15 @@
     background: var(--primary) url("../assets/icons/check.svg") no-repeat center / 1.5rem;
     
 }
+
+/* Ícone de favorito */
+.favorito {
+  font-size: 1.5rem;
+  color: rgba(0, 0, 0, .4);
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.favorito.ativo {
+  color: red;
+}

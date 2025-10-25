@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="css/style.css">
   <script src="js/main.js" defer></script>
   <title>Feira Maps - Encontre feiras próximas a você</title>
+  <link rel="icon" href="assets/img/logo.png" type="image/x-icon">
 </head>
 
 <body>
@@ -98,7 +99,7 @@
       <div class="panel__list">
         <div class="list-header">
           <h2 id="feiras-heading">Feiras encontradas</h2>
-          <span class="badge">5</span>
+          <span class="badge">6</span>
         </div>
         <div class="cards">
           <!-- Card de exemplo (deve ser gerado dinamicamente) -->
@@ -108,16 +109,15 @@
             </div>
             <div class="card__body">
               <h3 class="card__title">Feira da Praça Central</h3>
-              <p class="card__meta endereco" data-cep="01226-010">📍 Rua das Palmeiras, 120 - Centro</p>
+              <p class="card__meta">📍 Rua das Palmeiras, 120</p>
               <p class="card__meta">⏰ Seg a Sex • 08:00 - 13:00</p>
 
               <!-- Overlay com informações adicionais -->
               <div class="card__overlay">
                 <p>Horário: Seg a Sex • 08:00 - 13:00</p>
-                <p>Produtos: Hortifruti, Orgânicos</p>
+                <p>Produtos: Comidas Prontas</p>
                 <p>Contato: (11) 98765-4321</p>
                 <button class="btn-search">Ver no mapa</button>
-                <button class="btn-detalhes">Mais Detalhes</button>
               </div>
             </div>
           </article>
@@ -129,15 +129,14 @@
             </div>
             <div class="card__body">
               <h3 class="card__title">Feira do Bairro Jardim</h3>
-              <p class="card__meta endereco" data-cep="01226-010">📍 Av. das Flores, 350 - Jardim</p>
-              <p class="card__meta">⏰ Ter e Qui • 07:00 - 12:00</p>
+              <p class="card__meta">📍 Av. das Flores, 350</p>
+              <p class="card__meta">⏰ Ter e Qui • 09:00 - 17:00</p>
 
               <div class="card__overlay">
-                <p>Horário: Ter e Qui • 07:00 - 12:00</p>
-                <p>Produtos: Hortifruti, Artesanato</p>
+                <p>Horário: Ter e Qui • 09:00 - 17:00</p>
+                <p>Produtos: Produtos artesanais</p>
                 <p>Contato: (11) 91234-5678</p>
                 <button class="btn-search">Ver no mapa</button>
-                <button class="btn-detalhes">Mais Detalhes</button>
               </div>
             </div>
           </article>
@@ -148,53 +147,68 @@
             </div>
             <div class="card__body">
               <h3 class="card__title">Feira Orgânica Saúde</h3>
-              <p class="card__meta endereco" data-cep="01226-010">📍 Praça da Saúde, 55 - Centro</p>
-              <p class="card__meta">⏰ Sáb • 06:00 - 13:00</p>
+              <p class="card__meta">📍 Praça da Saúde, 55</p>
+              <p class="card__meta">⏰ Sáb e Dom • 06:00 - 13:00</p>
 
               <div class="card__overlay">
-                <p>Horário: Sábado • 06:00 - 13:00</p>
-                <p>Produtos: Orgânicos, Produtos naturais</p>
+                <p>Horário: Sáb e Dom • 06:00 - 13:00</p>
+                <p>Produtos: Orgânicos</p>
                 <p>Contato: (11) 99876-5432</p>
                 <button class="btn-search">Ver no mapa</button>
-                <button class="btn-detalhes">Mais Detalhes</button>
               </div>
             </div>
           </article>
 
           <article class="card" role="article">
             <div class="card__img">
-              <img src="assets/img/feiras-cadastradas/feira_4.jpg" alt="Feira do Bairro Jardim">
+              <img src="assets/img/feiras-cadastradas/feira_4.jpg" alt="Feira do Parque Verde">
             </div>
             <div class="card__body">
-              <h3 class="card__title">Feira do Bairro Jardim</h3>
-              <p class="card__meta endereco" data-cep="01226-010">📍 Av. das Flores, 350 - Jardim</p>
-              <p class="card__meta">⏰ Ter e Qui • 07:00 - 12:00</p>
+              <h3 class="card__title">Feira do Parque Verde</h3>
+              <p class="card__meta">📍 Rua dos Ipês, 507</p>
+              <p class="card__meta">⏰ Qui e Sex • 06:00 - 18:00</p>
 
               <div class="card__overlay">
-                <p>Horário: Ter e Qui • 07:00 - 12:00</p>
-                <p>Produtos: Hortifruti, Artesanato</p>
-                <p>Contato: (11) 91234-5678</p>
+                <p>Horário: Qui e Sex • 06:00 - 18:00</p>
+                <p>Produtos: Hortifruti</p>
+                <p>Contato: (11) 91264-5878</p>
                 <button class="btn-search">Ver no mapa</button>
-                <button class="btn-detalhes">Mais Detalhes</button>
               </div>
             </div>
           </article>
 
           <article class="card" role="article">
             <div class="card__img">
-              <img src="assets/img/feiras-cadastradas/feira_5.jpg" alt="Feira do Bairro Jardim">
+              <img src="assets/img/feiras-cadastradas/feira_5.jpg" alt="Feira da Bela Vista">
             </div>
             <div class="card__body">
-              <h3 class="card__title">Feira do Bairro Jardim</h3>
-              <p class="card__meta endereco" data-cep="01226-010">📍 Av. das Flores, 350 - Jardim</p>
-              <p class="card__meta">⏰ Ter e Qui • 07:00 - 12:00</p>
+              <h3 class="card__title">Feira da Bela Vista</h3>
+              <p class="card__meta">📍 Rua das Laranjas, 312</p>
+              <p class="card__meta">⏰ Sex a Dom • 07:00 - 15:30</p>
 
               <div class="card__overlay">
-                <p>Horário: Ter e Qui • 07:00 - 12:00</p>
-                <p>Produtos: Hortifruti, Artesanato</p>
-                <p>Contato: (11) 91234-5678</p>
+                <p>Horário: Sex a Dom • 07:00 - 15:30</p>
+                <p>Produtos: Sucos naturais</p>
+                <p>Contato: (11) 91434-5668</p>
                 <button class="btn-search">Ver no mapa</button>
-                <button class="btn-detalhes">Mais Detalhes</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="card" role="article">
+            <div class="card__img">
+              <img src="assets/img/feiras-cadastradas/feira_6.jpeg" alt="Feira da Praça do Sol">
+            </div>
+            <div class="card__body">
+              <h3 class="card__title">Feira da Praça do Sol</h3>
+              <p class="card__meta">📍 Rua das Acácias, 233</p>
+              <p class="card__meta">⏰ Qui a Dom • 09:00 - 19:00</p>
+
+              <div class="card__overlay">
+                <p>Horário: Qui a Dom • 09:00 - 19:00</p>
+                <p>Produtos: Artesanato</p>
+                <p>Contato: (11) 91134-5778</p>
+                <button class="btn-search">Ver no mapa</button>
               </div>
             </div>
           </article>

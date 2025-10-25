@@ -31,37 +31,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
-const buttons = document.querySelectorAll('.btn-search');
-const iframe = document.getElementById('mapFrame');
-
-buttons.forEach(button => {
-  button.addEventListener('click', function () {
-    // Pega o card correspondente
-    const card = this.closest('.card');
-    const addressElement = card.querySelector('.endereco');
-
-    const cep = addressElement.dataset.cep || '';
-    const enderecoTexto = addressElement.textContent.trim();
-
-    // Combina endereço + CEP
-    let searchQuery = enderecoTexto;
-    if (cep) searchQuery += ` - ${cep}`;
-
-    if (searchQuery === '') {
-      alert('Erro ao localizar endereço');
-      return;
-    }
-
-    console.log("Consulta no Maps:", searchQuery);
-
-    // Atualiza o mapa
-    const query = encodeURIComponent(searchQuery);
-    iframe.src = `https://www.google.com/maps?q=${query}&output=embed`;
+// Script para favoritar feira
+document.querySelectorAll('.favorito').forEach(icon => {
+  icon.addEventListener('click', () => {
+    icon.classList.toggle('ativo');
   });
 });
 
-document.querySelectorAll(".btn-detalhes").forEach(botao => {
-  botao.addEventListener("click", function() {
-    window.location.href = "detalhes.html";
-  });
-});
+// Máscara CEP
+var cep = document.getElementById('cep');
+var cepMask = IMask(cep, { mask: '00000-000' });
+
+// Máscara Telefone
+var contato = document.getElementById('contato');
+var contatoMask = IMask(contato, { mask: '(00) 00000-0000' });
